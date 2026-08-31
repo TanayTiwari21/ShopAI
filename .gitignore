@@ -1,0 +1,50 @@
+# Environment variables and secrets
+.env
+.env.*
+*.env
+
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Database
+*.db
+*.sqlite3
+
+# Node modules (if frontend uses Node)
+node_modules/
+
+# Sensitive credential files
+credentials.json
+service_account.json
+
+# Temporary files
+*.tmp
+*.bak

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopAI — E-commerce with Payment Risk Analysis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <h1 class="navbar__logo">🛍️ ShopAI</h1>
+      <div class="navbar__search">
+        <input
+          id="searchInput"
+          type="text"
+          class="search-input"
+          placeholder="Search products…"
+          autocomplete="off"
+        />
+      </div>
+      <button id="accountSwitch" class="account-switch" title="Switch shopper (demo)">
+        <span id="accountAvatar" class="account-switch__avatar">?</span>
+        <span id="accountName" class="account-switch__name">Loading…</span>
+      </button>
+      <button id="dashboardToggle" class="dashboard-toggle" title="Merchant dashboard">
+        📋
+        <span id="dashboardBadge" class="dashboard-badge" hidden>0</span>
+      </button>
+      <button id="cartToggle" class="cart-toggle">
+        🛒
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Category Filter -->
+  <section class="category-section">
+    <div class="container">
+      <div id="categoryBar" class="category-bar"></div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="products-section">
+      <div class="result-meta" id="resultMeta"></div>
+      <div id="emptyState" class="empty-state">
+        <p>No products found</p>
+      </div>
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div id="cartOverlay" class="cart-overlay" hidden></div>
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-drawer__header">
+      <h2>Your Cart</h2>
+      <button id="cartClose" class="close-btn" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div id="cartEmptyState" class="cart-empty">
+      <p>Your cart is empty</p>
+    </div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Items:</span>
+        <span id="summaryItems" class="mono">0</span>
+      </div>
+      <div class="summary-row">
+        <span>Total:</span>
+        <span id="summaryTotal" class="mono">$0.00</span>
+      </div>
+    </div>
+
+    <button id="checkoutBtn" class="checkout-btn">Checkout</button>
+  </div>
+
+  <!-- Merchant Dashboard Drawer -->
+  <div id="dashboardOverlay" class="cart-overlay" hidden></div>
+  <div id="dashboardDrawer" class="dashboard-drawer">
+    <div class="cart-drawer__header">
+      <h2>Merchant Dashboard</h2>
+      <button id="dashboardClose" class="close-btn" aria-label="Close dashboard">✕</button>
+    </div>
+    <p class="dashboard-drawer__subtitle">Risk assessments across all transactions</p>
+    <div id="dashboardList" class="dashboard-list"></div>
+    <div id="dashboardEmptyState" class="dashboard-empty">
+      <p>No transactions analyzed yet</p>
+    </div>
+  </div>
+
+  <!-- Account Switcher (demo only — simulates "logging in" as a different shopper) -->
+  <div id="customerModal" class="modal" hidden>
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <div class="modal__header">
+        <h3>Switch Shopper</h3>
+        <button class="close-btn" onclick="closeCustomerModal()">✕</button>
+      </div>
+      <p class="modal__subtitle">Demo only — simulates browsing as a different customer account</p>
+
+      <div id="customerList" class="customer-list">
+        <!-- Will be populated by JavaScript -->
+      </div>
+
+      <div class="modal__actions">
+        <button class="btn btn--secondary" onclick="closeCustomerModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" hidden></div>
+
+  <!-- Razorpay Checkout Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
