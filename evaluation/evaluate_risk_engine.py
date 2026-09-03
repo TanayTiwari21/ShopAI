@@ -21,7 +21,13 @@ Run:
 import csv
 import json
 from datetime import datetime
+import sys
+from pathlib import Path
 
+BACKEND_DIR = Path(__file__).resolve().parents[1] / "backend"
+sys.path.insert(0, str(BACKEND_DIR))
+
+from risk_engine import RiskEngine
 from risk_engine import RiskEngine
 
 # --- Cost model (documented assumptions, not hidden) --------------------

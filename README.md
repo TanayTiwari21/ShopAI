@@ -1,4 +1,5 @@
 # ShopAI — AI-Powered Payment Risk Investigation Layer
+  Project live :- https://shopai.csproject.org
 
 An AI-powered payment risk investigation layer that sits around the payment
 workflow and gives merchants **explainable, evidence-backed risk analysis**
